@@ -1,0 +1,85 @@
+:root{--bg:#07060f;--violet:#8b5cf6;--cyan:#22d3ee;--rose:#fb7185;--text:#eceaff;--dim:#a9a5c9;--glass:rgba(255,255,255,.06);--edge:rgba(255,255,255,.14);--mx:50%;--my:30%}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg);scroll-behavior:smooth}
+body{min-height:100vh;min-height:100dvh;color:var(--text);font-family:"Avenir Next","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;overflow-x:hidden;line-height:1.5}
+#wall{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.aurora{position:fixed;inset:-20%;z-index:0;pointer-events:none;opacity:.5;filter:blur(60px);
+background:radial-gradient(40% 35% at 25% 30%,rgba(139,92,246,.45),transparent 70%),radial-gradient(35% 30% at 75% 25%,rgba(34,211,238,.32),transparent 70%),radial-gradient(40% 35% at 55% 80%,rgba(251,113,133,.28),transparent 70%);animation:aur 28s ease-in-out infinite alternate}
+@keyframes aur{to{transform:translate3d(4%,-3%,0) rotate(8deg) scale(1.1)}}
+.spot{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(260px circle at var(--mx) var(--my),rgba(139,92,246,.16),transparent 70%)}
+.hidden{visibility:hidden}
+#intro{position:fixed;inset:0;z-index:50;display:grid;place-content:center;gap:1.2rem;text-align:center;padding:2rem;background:radial-gradient(circle at 50% 40%,#120d2a,#07060f 70%);transition:opacity .01s}
+#introWelcome{font-size:clamp(1.6rem,6vw,3.2rem);font-weight:300;letter-spacing:.01em;min-height:1.3em}
+#introBy{font-size:clamp(1rem,3.4vw,1.5rem);color:var(--cyan);min-height:1.4em;letter-spacing:.06em}
+#skip{position:absolute;right:1rem;bottom:calc(1rem + env(safe-area-inset-bottom));background:none;border:1px solid var(--edge);color:var(--dim);padding:.5rem 1rem;border-radius:99px;font:inherit;cursor:pointer}
+#app{position:relative;z-index:2;max-width:560px;margin:0 auto;padding:calc(1rem + env(safe-area-inset-top)) 1.1rem calc(2rem + env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center}
+.top{width:100%;display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin-bottom:1.6rem}
+.status{display:inline-flex;gap:.5rem;align-items:center;font-size:.85rem;color:var(--dim);padding:.4rem .8rem;border:1px solid var(--edge);border-radius:99px;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.status i{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 0 rgba(74,222,128,.7);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+.top-actions{display:flex;gap:.5rem}
+.top button{font:inherit;font-size:.85rem;color:var(--text);background:var(--glass);border:1px solid var(--edge);border-radius:99px;padding:.4rem .9rem;cursor:pointer;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .2s,border-color .2s}
+.top button:hover{border-color:var(--violet);transform:translateY(-1px)}
+.profile{text-align:center;margin-bottom:1rem;will-change:transform}
+.avatar{position:relative;width:128px;height:128px;margin:0 auto 1.1rem;border-radius:38% 62% 55% 45%/50% 45% 55% 50%;display:grid;place-items:center;font-size:2.6rem;font-weight:700;letter-spacing:.04em;color:#fff;cursor:pointer;
+background:linear-gradient(140deg,rgba(139,92,246,.9),rgba(34,211,238,.7) 60%,rgba(251,113,133,.8));box-shadow:0 0 50px rgba(139,92,246,.55),inset 0 0 22px rgba(255,255,255,.35);animation:morph 12s ease-in-out infinite,floaty 6s ease-in-out infinite;transform-style:preserve-3d}
+.avatar::before{content:"";position:absolute;inset:-14px;border-radius:inherit;border:1px dashed rgba(255,255,255,.3);animation:spin 18s linear infinite}
+.avatar::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.45) 50%,transparent 65%);background-size:250% 100%;animation:glint 5s ease-in-out infinite}
+@keyframes morph{50%{border-radius:58% 42% 40% 60%/45% 58% 42% 55%}}
+@keyframes floaty{50%{translate:0 -10px}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes glint{0%,60%{background-position:150% 0}100%{background-position:-50% 0}}
+h1{font-size:clamp(2.1rem,9vw,3.1rem);font-weight:800;letter-spacing:.12em;background:linear-gradient(90deg,#fff,#c4b5fd,#67e8f9,#fff);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shim 8s linear infinite}
+@keyframes shim{to{background-position:-250% 0}}
+.subtitle{color:var(--dim);margin-top:.35rem;min-height:1.5em}
+.msg{margin:1.1rem 0 1.5rem;padding:.8rem 1.1rem;text-align:center;font-size:.98rem;color:var(--text);border:1px solid var(--edge);border-radius:18px;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);min-height:3.4em;width:100%;display:grid;place-items:center}
+.links{width:100%;display:grid;gap:.8rem;perspective:900px}
+.btn{--c:var(--violet);position:relative;display:flex;align-items:center;gap:1rem;padding:.95rem 1.1rem;min-height:68px;border-radius:20px;text-decoration:none;color:var(--text);overflow:hidden;isolation:isolate;
+border:1px solid var(--edge);background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.03));backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s,border-color .35s;will-change:transform;touch-action:manipulation}
+.btn:focus-visible,.top button:focus-visible,#skip:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.ico{flex:none;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-weight:800;font-size:.95rem;color:#0b0a14;background:var(--c);box-shadow:0 0 18px color-mix(in srgb,var(--c) 55%,transparent);transition:transform .35s}
+.txt{flex:1;min-width:0;display:flex;flex-direction:column;transition:transform .3s}
+.txt b{font-size:1.05rem}.txt small{color:var(--dim);font-size:.82rem}
+.arr{font-size:1.3rem;color:var(--dim);transition:transform .3s,color .3s}
+.btn:hover{border-color:color-mix(in srgb,var(--c) 70%,white);box-shadow:0 10px 36px -10px var(--c)}
+.btn:hover .arr{transform:translateX(6px);color:#fff}
+.btn:active{transform:scale(.97)!important}
+.btn .glow{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(180px circle at var(--bx,50%) var(--by,50%),color-mix(in srgb,var(--c) 38%,transparent),transparent 70%);opacity:0;transition:opacity .3s}
+.btn:hover .glow{opacity:1}
+.rip{position:absolute;border-radius:50%;pointer-events:none;background:color-mix(in srgb,var(--c) 60%,white);opacity:.45;transform:scale(0);animation:rip .7s ease-out forwards;z-index:-1}
+@keyframes rip{to{transform:scale(1);opacity:0}}
+.spark{position:fixed;width:6px;height:6px;border-radius:50%;pointer-events:none;z-index:60}
+/* button effect library (3 randomly combined per button) */
+.fx-shine::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.22) 50%,transparent 60%);background-size:260% 100%;background-position:150% 0;animation:shine 6s ease-in-out infinite}
+@keyframes shine{0%,55%{background-position:150% 0}100%{background-position:-60% 0}}
+.fx-breathe{animation:breathe 5s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(1.015)}}
+.fx-floatbtn{animation:fl 6s ease-in-out infinite}
+@keyframes fl{50%{translate:0 -4px}}
+.fx-pulse{animation:pls 3.5s ease-in-out infinite}
+@keyframes pls{50%{box-shadow:0 0 28px -6px var(--c)}}
+.fx-border{border-color:transparent;background:linear-gradient(#0e0b1d,#0e0b1d) padding-box,conic-gradient(from var(--a,0deg),transparent 0 70%,var(--c),transparent) border-box;animation:bd 6s linear infinite}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes bd{to{--a:360deg}}
+.fx-iconspin:hover .ico{transform:rotate(12deg) scale(1.1)}
+.fx-iconbounce:hover .ico{animation:bnc .6s}
+@keyframes bnc{40%{transform:translateY(-8px)}70%{transform:translateY(2px)}}
+.fx-textslide:hover .txt{transform:translateX(4px)}
+.fx-arrowbounce .arr{animation:ab 2s ease-in-out infinite}
+@keyframes ab{50%{translate:5px 0}}
+.fx-corner::before{content:"";position:absolute;right:-30px;top:-30px;width:90px;height:90px;border-radius:50%;z-index:-1;background:radial-gradient(circle,color-mix(in srgb,var(--c) 45%,transparent),transparent 70%);animation:cr 7s ease-in-out infinite alternate}
+@keyframes cr{to{transform:translate(-20px,20px) scale(1.3)}}
+.fx-neon:hover{box-shadow:0 0 0 1px var(--c),0 0 28px var(--c)}
+.fx-lift:hover{translate:0 -4px}
+.fx-shake:active{animation:shk .25s}
+@keyframes shk{25%{translate:-3px 0}75%{translate:3px 0}}
+/* misc */
+.foot{margin-top:2.2rem;color:var(--dim);font-size:.85rem;text-align:center}
+.reveal-on-scroll{opacity:0;transform:translateY(24px) scale(.98);transition:opacity .7s,transform .7s}
+.reveal-on-scroll.in{opacity:1;transform:none}
+#toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom));z-index:70;transform:translate(-50%,30px);opacity:0;padding:.7rem 1.2rem;border-radius:99px;background:rgba(20,16,40,.9);border:1px solid var(--edge);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:.4s;pointer-events:none}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#curtain{position:fixed;inset:0;z-index:80;pointer-events:none;background:linear-gradient(135deg,#120d2a,#2a1659,#0a3a4a);clip-path:circle(0 at 50% 50%)}
+.ch{display:inline-block;white-space:pre}
+@media (min-width:900px){#app{max-width:600px;padding-top:2.2rem}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01s!important}.aurora{opacity:.35}}
