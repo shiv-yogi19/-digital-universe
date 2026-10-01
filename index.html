@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shiv Yogi · Digital Universe</title>
+<meta name="description" content="Shiv Yogi's personal digital universe.">
+<meta name="theme-color" content="#07060f">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<canvas id="wall" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+<div class="spot" id="spot" aria-hidden="true"></div>
+
+<div id="intro" role="status" aria-live="polite">
+  <p id="introWelcome"></p>
+  <p id="introBy"></p>
+  <button id="skip" type="button">Skip</button>
+</div>
+
+<main id="app" class="hidden">
+  <header class="top">
+    <span class="status"><i></i><span id="statusText">Online</span></span>
+    <span class="top-actions">
+      <button id="soundBtn" type="button" aria-pressed="false" aria-label="Toggle sound">Sound off</button>
+      <button id="shareBtn" type="button" aria-label="Share this website">Share</button>
+    </span>
+  </header>
+
+  <section class="profile">
+    <div class="avatar" id="avatar" aria-hidden="true"><span id="avatarText">SY</span></div>
+    <h1 id="name">SHIV YOGI</h1>
+    <p id="subtitle" class="subtitle"></p>
+  </section>
+
+  <p id="homeMsg" class="msg" aria-live="polite"></p>
+
+  <nav id="links" class="links" aria-label="Social links"></nav>
+
+  <footer class="foot"><span id="footText"></span></footer>
+</main>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="curtain" aria-hidden="true"></div>
+
+<script src="./js/config.js"></script>
+<script src="./js/messages.js"></script>
+<script src="./js/engines.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
